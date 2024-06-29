@@ -5,9 +5,10 @@ from rxconfig import config
 
 from database.mongo import db
 from . import sign_up
+from .component import color_scheme
 
 
-color_scheme = "crimson"
+# color_scheme = "mint"
 
 
 class State(rx.State):

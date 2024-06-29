@@ -1,13 +1,14 @@
 import reflex as rx
 from . import style
 from .sign_up_states import SignUp
+from .component import color_scheme, custom_dialog
 
 
 
 
 
 
-color_scheme = "mint"
+
 
 def sign_up() -> rx.Component:
     return rx.container(
@@ -44,11 +45,19 @@ def sign_up() -> rx.Component:
                             style=style.input_style,
                             
                         ),
-                        rx.button(
-                            "Register",
-                            color_scheme=color_scheme,
-                            style=style.button_style,
-                            type="submit",
+                        # rx.button(
+                        #     "Register",
+                        #     color_scheme=color_scheme,
+                        #     style=style.button_style,
+                        #     type="submit",
+                        # ),
+                        custom_dialog(
+                            trigger="Register",
+                            title="Sign",
+                            desc="Are you sure you want to proceed",
+                            cancel="go back",
+                            action="Yes, continue",
+                            on_click=SignUp.commit()
                         ),
                         rx.divider(),
                         rx.heading("Notification", size="3"),
